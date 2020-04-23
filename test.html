@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,user-scalable=no">
+                    <script src="https://cdn.jsdelivr.net/npm/dsbridge/dist/dsbridge.js"> </script>
+                    
+                    <style type="text/css">
+                        .btn {background-color: blue;margin:20px}
+                        </style>
+    </head>
+    
+    <body>
+        
+        <div class="btn" onclick="logIn()">登录</div>
+        <br>
+        <div class="btn" onclick="register()">注册</div>
+        <br>
+        <div class="btn" onclick="invite()">邀请好友</div>
+        <br>
+        <div class="btn" onclick="feeDiscount()">费率折扣</div>
+        <br>
+        <div class="btn" onclick="security()">安全中心</div>
+        <br>
+        <div class="btn" onclick="addressBook()">地址簿</div>
+        <br>
+        <div class="btn" onclick="tradeCoin()">币币交易</div>
+        <br>
+        <div class="btn" onclick="tradeContract()">合约交易</div>
+        <br>
+        <div class="btn" onclick="deposit()">充值</div>
+        <br>
+        <div class="btn" onclick="withdraw()">提现</div>
+        <br>
+        <div class="btn" onclick="transfer()">划转</div>
+        <br>
+<!--        <div class="btn" onclick="kline()">币币kline页面</div>-->
+<!--        <br>-->
+<!--        <div class="btn" onclick="contractKline()">合约kline页面</div>-->
+<!--        <br>-->
+        
+        <script type="text/javascript">
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+            
+        function logIn() {
+            let x = getCookie('token');
+            alert(document.cookie)
+            
+<!--            dsBridge.call("login", function (data) {-->
+<!--<!--                alert(data)-->-->
+<!--            })-->
+        }
+        function register() {
+            dsBridge.call("register", function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function invite() {
+            dsBridge.call("invite", function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function feeDiscount() {
+            dsBridge.call("feeDiscount", function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function security() {
+            dsBridge.call("security", function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function addressBook() {
+            dsBridge.call("addressBook", function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function tradeCoin() {
+            var params = {
+                market: "btcusdt",
+            } 
+            dsBridge.call("tradeCoin", params, function (data) {
+<!--                alert(data)-->
+            })
+        }
+        
+        function tradeContract() {
+            var params = {
+                coin: "eos",
+                type: "usdt"
+            }
+            dsBridge.call("tradeContract",params, function (data) {
+<!--                alert(data)-->
+            })
+        }
+        
+        function deposit() {
+            var params = {
+                coin: "btc",
+            }
+            dsBridge.call("deposit",params, function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function withdraw() {
+            var params = {
+                coin: "btc",
+            }
+            dsBridge.call("withdraw",params, function (data) {
+<!--                alert(data)-->
+            })
+        }
+        function transfer() {
+            var params = {
+                coin: "vet",
+            }
+            dsBridge.call("transfer",params, function (data) {
+<!--                alert(data)-->
+            })
+        }
+<!--        function kline() {-->
+<!--            var params = {-->
+<!--                market: "btcusdt",-->
+<!--            }-->
+<!--            dsBridge.call("kline", function (data) {-->
+<!--<!--                alert(data)-->-->
+<!--            })-->
+<!--        }-->
+<!--        function contractKline() {-->
+<!--            var params = {-->
+<!--                coin: "btc",-->
+<!--                type: "usdt"-->
+<!--            }-->
+<!--            dsBridge.call("contractKline", function (data) {-->
+<!--<!--                alert(data)-->-->
+<!--            })-->
+<!--        }-->
+    </script>
+    </body>
+</html>
